@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOPE</title>
-    <link rel="stylesheet" href="./css/styleadm.css">
+    <title>nithelconstruction</title>
+    <link rel="stylesheet" href="./partials/adm.css">
     
     
 </head>
 <body>
 <header>
     
-        <div class="logo">
-         <a href=".adm.php"><img src="./logojudite.png" alt=""></a>
-        </div>
+<div class="d-flex">
+        <a href="logout.php" class="btn btn-danger me-5">Sair</a>
+    </div>
         
 </header>
 <nav>
@@ -22,13 +22,13 @@
 
 <section class="contato">
     <a href="./lista_cliente.php"><button>Lista de clientes</button></a>
-    <a href="./form_produto.php"><button>Cadastrar produto</button></a>
+    <a href="apartamento.php"><button>Cadastrar Imóveis</button></a>
     <a href="listacontatos.php"><button>LISTA CONTATOS</button></a>
-                
+    <a href="listagendamento.php"><button>LISTA AGENDAMENTO</button></a>           
     </section>
 
     <footer>
-    <p>&copy; 2024 JUDITE-Todos os direitos reservados.</p>
+    <p>&copy; 2024 NITHEL-Todos os direitos reservados.</p>
   </footer>
 
 </body>

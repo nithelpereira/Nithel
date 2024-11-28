@@ -53,7 +53,7 @@
                 <li class="nav__item">
                 <a href="login.php" class="nav__link">
     <i class='bx bx-home-alt-2'></i>
-    <button>Login</button>
+    <span>Login</span>
 </a>
 
                 </li>    

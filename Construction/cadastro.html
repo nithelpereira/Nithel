@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -30,6 +23,9 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 300px;
+            background-color: rgba(148, 156, 57, 0.9);
+            background-color: rgba(22, 22, 22, 0.9);
+            color: #ddd;
         }
         .form-container h2 {
             margin-bottom: 20px;
@@ -37,13 +33,15 @@
         .form-container label {
             display: block;
             margin-bottom: 8px;
+            
         }
         .form-container input {
             width: 100%;
-            padding: 8px;
+            padding: 6px;
             margin-bottom: 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            
         }
         .form-container button {
             width: 100%;
@@ -63,6 +61,9 @@
     <div class="form-container">
         <h2>Cadastro</h2>
         <form action="cadastro.php" method="post">
+            <label for="cpf">cpf:</label>
+            <input type="text" id="cpf" name="cpf" required>
+
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
             

@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,8 +8,9 @@
         body{
             font-family: Arial, Helvetica, sans-serif;
             background-color: rgba(148, 156, 57, 0.9);
+           
         }
-        div{
+        div{ background-color: rgba(148, 156, 57, 0.9);
             background-color: rgba(22, 22, 22, 0.9);
             position: absolute;
             top: 50%;
@@ -50,7 +45,7 @@
     <div>
         <h1>Login</h1>
         <form action="login.php" method="POST">
-            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="cpf" placeholder="cpf" required>
             <br><br>
             <input type="password" name="senha" placeholder="Senha" required>
             <br><br>
@@ -64,7 +59,7 @@
     <div>
         <h1>Login</h1>
         <form action="login.php" method="POST">
-            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="cpf" placeholder="cpf" required>
             <br><br>
             <input type="password" name="senha" placeholder="Senha" required>
             <br><br>
@@ -86,12 +81,12 @@ session_start();
 include_once ('config.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturar os dados do formulário
-    $nome = $_POST['nome'];
+    $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
 
     // Preparar a consulta para evitar SQL Injection
-    $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE nome = ?");
-    $stmt->bind_param("s", $nome);  // 's' indica que a variável $nome é do tipo string
+    $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE cpf = ?");
+    $stmt->bind_param("s", $cpf);  // 's' indica que a variável $nome é do tipo string
 
     // Executar a consulta
     $stmt->execute();
@@ -108,12 +103,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($row['tipo'] == 1) {
                 // Login válido para administrador, redireciona para adm.php
                 header("Location: adm.php");
-            } elseif ($row['tipo'] == 2) {
-                // Login válido para cliente especial, redireciona para especial.php
-                header("Location: profissional.php");
             } else {
                 // Login válido para outro tipo de usuário, redireciona para home
-                header("Location: index.php");
+                header("Location: inicio.php");
             }
         } else {
             echo "Email ou senha inválidos.";

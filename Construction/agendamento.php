@@ -1,3 +1,29 @@
+<?php
+include_once('config.php');
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $apartamento =  $_POST['apartamento'];
+    $data = $_POST['data'];
+    $hora = $_POST['hora'];
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+
+    $sql = "INSERT INTO agendamentos (apartamento, data, hora, nome, email) VALUES ('$apartamento', '$data', '$hora', '$nome', '$email')";
+
+    if (mysqli_query($conexao, $sql)) {
+        // Redirecionar para a página de confirmação
+        header('Location: seuagendamento.php');
+        exit;
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+}
+mysqli_close($conexao);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,13 +33,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #cfe0bc;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #4CAF50;
+            background-color: rgba(148, 156, 57, 0.9);
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -26,10 +52,12 @@
         form {
             max-width: 500px;
             margin: 0 auto;
-            background-color: white;
+            color: #ddd;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(148, 156, 57, 0.9);
+            background-color: rgba(22, 22, 22, 0.9);
         }
 
         label {
@@ -39,14 +67,14 @@
 
         input, select, button {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
 
         button {
-            background-color: #4CAF50;
+            background-color: rgba(148, 156, 57, 0.9);
             color: white;
             cursor: pointer;
         }
@@ -63,7 +91,7 @@
     </header>
 
     <main>
-        <form action="/agendar" method="POST">
+        <form action="agendamento.php" method="POST">
             <label for="apartamento">Escolha o Apartamento:</label>
             <select id="apartamento" name="apartamento" required>
                 <option value="apto1">Apartamento 101 - 2 Quartos</option>

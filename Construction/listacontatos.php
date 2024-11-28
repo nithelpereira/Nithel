@@ -58,14 +58,14 @@ if (!$result) {
         </button>
     </div>
     <div class="d-flex">
-        <a href="sair.php" class="btn btn-danger me-5">Sair</a>
+        <a href="adm.php" class="btn btn-danger me-5">Voltar</a>
     </div>
 </nav>
 
 <br>
 
 <?php
-echo "<h1>Lista de Cliente</h1>";
+echo "<h1>CONTATOS</h1>";
 ?>
 
 <br>
